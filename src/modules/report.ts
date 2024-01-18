@@ -42,8 +42,8 @@ export const buildReport = (
 - **Result**: ${projectStatus}${branch ? `\n- **Branch**: \`${branch}\`` : ""}
 - Triggered by @${context.actor} on \`${context.eventName}\`
 
-| Metric | Status | Value | Error Threshold |
-|:------:|:------:|:-----:|:---------------:|
+| METRICAS | ESTADO | VALORES | Error Threshold |
+|:--------:|:------:|:-------:|:---------------:|
 ${resultTable}
 
 [View on SonarQube](${projectURL})
