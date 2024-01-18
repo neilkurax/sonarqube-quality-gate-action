@@ -19,6 +19,5 @@ export const fetchQualityGate = async (
       },
     }
   );
-  console.log(response)
   return response.data;
 };
