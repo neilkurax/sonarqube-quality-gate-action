@@ -56,10 +56,17 @@ import { findComment } from "./modules/find-comment/main";
         repository: `${context.repo.owner}/${context.repo.repo}`,
         issueNumber: context.issue.number,
         commentAuthor: "github-actions[bot]",
-        bodyIncludes: "SonarQube Quality Gate Result",
+        bodyIncludes: "Resultado de calidad de SonarQube",//"SonarQube Quality Gate Result",
         direction: "first",
       });
 
+      await octokit.rest.issues.createComment({
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        issue_number: context.issue.number,
+        body: reportBody,
+      });
+      /*
       if (issueComment) {
         console.log("Found existing comment, updating with the latest report.");
 
@@ -79,7 +86,7 @@ import { findComment } from "./modules/find-comment/main";
           issue_number: context.issue.number,
           body: reportBody,
         });
-      }
+      }*/
     }
 
     let resultMessage = `Quality gate status for \`${inputs.projectKey}\` returned \`${result.projectStatus.status}\``;
